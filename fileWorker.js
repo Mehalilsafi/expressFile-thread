@@ -1,4 +1,4 @@
-const { workerData, parentPort } = require('worker_thread');
+const { workerData, parentPort } = require('worker_threads');
 const fs = require('fs');
 const {filePath,searchText}=workerData
 

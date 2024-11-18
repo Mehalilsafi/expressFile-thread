@@ -2,7 +2,7 @@ const { error } = require('console');
 const express = require('express');
 const fs = require('fs');
 const path = require('path');
-const { Worker } = require('worker_thread');
+const { Worker } = require('worker_threads');
 const app = express();
 app.use(express.json());
 const directoryPath = './sample-files';
@@ -38,7 +38,7 @@ app.post('/search', (req, res) => {
         files.forEach((file) => {
             const filePath = path.join(directoryPath, file);
 
-            const worker = new Worker('./worker.js', {
+            const worker = new Worker('./fileWorker.js', {
                 workerData: { filePath, searchText }, 
             });
 
